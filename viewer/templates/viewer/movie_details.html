@@ -1,0 +1,9 @@
+{% extends "viewer/base.html" %}
+
+{% block content %}
+<h1>{{ object.title }}</h1>
+<h2>{{ object.release }}</h2>
+<h3>{{ object.genre }}</h3>
+<p><strong> Rating:</strong>{{ object.rating}}</p>
+<p> {{ object.description }}</p>
+{% endblock %}

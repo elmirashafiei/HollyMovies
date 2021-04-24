@@ -1,0 +1,22 @@
+{% extends "viewer/base.html" %}
+{% block content %}
+  <h1>Welcome to HollyMovies!</h1>
+  <ul>
+    {% for movie in object_list %}
+      <li>
+        {{ movie.title }} ({{ movie.released.year }}) : {{ movie.genre.name }} /
+        <a href="{% url 'movie_detail' movie.id %}">
+          Detail
+        </a>
+        {% if user.is_authenticated %} /
+        <a href="{% url 'movie_update' movie.id %}">
+          update
+        </a> /
+        <a href="{% url 'movie_delete' movie.id %}">
+          Delete
+        </a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
