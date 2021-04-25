@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.views.generic import ListView, FormView, CreateView, UpdateView, DeleteView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from logging import getLogger
-
+from django.contrib import messages
 LOGGER = getLogger()
 
 
@@ -133,6 +133,11 @@ class MovieCreateView(LoginRequiredMixin, PermissionRequiredMixin, StaffRequired
   form_class = MovieForm
   success_url = reverse_lazy('movies')
   permission_required = "viewer.add_movie"
+
+  def form_valid(self, form):
+      result = super().form_valid(form)
+      messages.success(self.request, "Movie Added Successfully")
+      return result
 
 
 # Requires Log in, and Permission to change

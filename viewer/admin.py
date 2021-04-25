@@ -14,7 +14,14 @@ class MovieAdmin(ModelAdmin):
 
   @staticmethod
   def cleanup_description(modeladmin, request, queryset):
-    queryset.update(description="No")
+    for movie in queryset:
+      new_description = movie.description + ". Added text in the end"
+      movie.description = new_description
+      movie.save()
+
+  # @staticmethod
+  # def cleanup_description(modeladmin, request, queryset):
+  #   queryset.update(description="No")
 
   ordering = ['title']
   list_display = ['id', 'title', 'genre', 'released_year']

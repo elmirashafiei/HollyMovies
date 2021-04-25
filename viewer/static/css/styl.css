@@ -1,0 +1,20 @@
+h1{
+color: red;
+}
+
+img{
+     background: url("/static/img/action1.jpeg") 50% 0 no-repeat fixed;
+     display : block;
+     color: black;
+     margin-left : auto;
+     margin-right: auto;
+     height: 550px;
+     padding: 100px 0 0 0;
+}
+
+body {
+  background: url("static/img/action.jpg");
+  color: black;
+  height: 950px;
+  padding: 100px 0 0 0;
+}

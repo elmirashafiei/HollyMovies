@@ -1,4 +1,6 @@
 {% extends "viewer/base.html" %}
+{% load static %}
+
 {% block content %}
   <h1>Welcome to HollyMovies!</h1>
   <ul>
@@ -19,4 +21,6 @@
       </li>
     {% endfor %}
   </ul>
+
+  <img src="{% static 'img/images.jpeg' %}" alt="Action!">
 {% endblock %}
